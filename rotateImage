@@ -6,7 +6,7 @@ class Solution {
     public void rotate(int[][] matrix) {
         int size = matrix[0].length;
         
-	//transpose
+	//first transpose
         for (int i = 0; i < size; i++) {
             for (int j = i; j < size; j++) {
                 int tmp = matrix[i][j];
@@ -15,7 +15,7 @@ class Solution {
             }
         }
         
-	//mirror
+	//then mirror
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size/2; j++) {
                 int tmp = matrix[i][j];
