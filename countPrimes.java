@@ -1,5 +1,5 @@
 //Tis the ancience Sieve of Eratosthenes
-//An elegant alogrithm that have a runtime of O(N log (log N))
+//An elegant alogrithm that runs in O(N log (log N))
 //from over two thousand years ago.
 
 class Solution {
