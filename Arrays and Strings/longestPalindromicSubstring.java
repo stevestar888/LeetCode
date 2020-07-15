@@ -42,3 +42,36 @@ class Solution {
         return s.substring(start, start+count);
     }
 }
+
+//search from center appraoch: 
+class Solution {
+    public String longestPalindrome(String s) {
+        if (s.length() == 0)
+            return "";
+        int left = 0;
+        int right = 0;
+
+        for (int i = 1; i< s.length(); i++) {
+            int len1 = search(s, i, i);
+            int len2 = search(s, i-1, i);
+            int len = Math.max(len1, len2);
+            
+            if (len > right - left + 1) {
+                //because i-1 and i are used,
+                //the left span will be longer than the right span
+                left = i - (len)/2;
+                right = i + (len-1)/2;
+            }
+        }
+        return s.substring(left, right+1);
+    }
+        
+    public int search(String s, int lo, int hi) {
+        while (lo >= 0 && hi < s.length() && s.charAt(lo) == s.charAt(hi)) {
+            lo--;
+            hi++;
+        }
+
+        return hi - lo - 1;
+    }
+}
