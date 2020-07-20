@@ -62,7 +62,9 @@ class Solution {
                 
                 if (cur.right != null) {
                     q.offer(cur.right);
+                    //connect children to the parent
                     map.get(cur.val).add(cur.right.val);
+                    //connect the parent to the child
                     map.put(cur.right.val, new ArrayList<Integer>());
                     map.get(cur.right.val).add(cur.val);
                 }
